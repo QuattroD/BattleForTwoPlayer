@@ -5,93 +5,93 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleForTwoPlayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="443" Width="1000">
+        Title="MainWindow" Height="443" Width="1018">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="19*"/>
             <ColumnDefinition Width="121*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="FreePointsTB" FontSize="14" Text="Points:" HorizontalAlignment="Left" Width="60" Margin="0,137,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="FreePoints" FontSize="14" Text="15" Width="20" HorizontalAlignment="Left" Margin="61,137,0,0" Height="20" VerticalAlignment="Top" RenderTransformOrigin="0.95,0.585"/>
-        <TextBlock x:Name="NameTB" FontSize="14" Text="Name:" Width="60" HorizontalAlignment="Left" Height="20" Margin="0,8,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Name" Width="134" Margin="61,8,0,0" Height="19" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="StrengthTB" FontSize="14" Text="Strength:" Width="60" HorizontalAlignment="Left" Height="20" Margin="0,28,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Strength" FontSize="14" Text="0" Margin="98,28,0,0" Width="20" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="DexterityTB" FontSize="14" Text="Dexterity:" HorizontalAlignment="Left" Width="60" Height="20" Margin="0,49,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Dexterity" FontSize="14" Text="0" Width="20" HorizontalAlignment="Left" Margin="98,50,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="LuckTB" FontSize="14" Text="Luck:" HorizontalAlignment="Left" Width="60" Height="20" Margin="0,70,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Luck" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="98,70,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="ConstitutionTB" FontSize="14" Text="Physique:" HorizontalAlignment="Left" Width="60" Height="20" Margin="0,91,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Constitution" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="98,91,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="IntteligenceTB" FontSize="14" Text="Intellect:" HorizontalAlignment="Left" Width="60" Height="20" Margin="0,112,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Intteligence" FontSize="14" Text="0" Margin="98,112,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="LVLTB" FontSize="14" Text="LVL:" HorizontalAlignment="Left" Width="70" Height="20" Margin="0,310,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lvlValue" FontSize="14" Text="1" HorizontalAlignment="Left" Width="20" Margin="75,310,0,0" Height="20" VerticalAlignment="Top"/>
-        <Button x:Name="StrengthMinus" Click="StrengthMinus_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="61,28,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="DexterityMinus" Click="DexterityMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="61,49,0,0" VerticalAlignment="Top" />
-        <Button x:Name="LuckMinus"  Click="LuckMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="61,70,0,0" VerticalAlignment="Top" />
-        <Button x:Name="ConstitutionMinus" Click="ConstitutionMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="61,91,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="IntelligenceMinus" Click="IntelligenceMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="61,112,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="StrengthPlus" Click="StrengthPlus_Click" Content="+" FontSize="14" Cursor="Hand" Margin="118,28,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="DexterityPlus" Click="DexterityPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="118,49,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="LuckPlus" Click="LuckPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="118,70,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="ConstitutionPlus" Click="ConstitutionPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="118,91,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="IntelligencePlus" Click="IntelligencePlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="118,112,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="hpTB" FontSize="14" Text="HP:" HorizontalAlignment="Left" Width="70" Margin="0,171,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="manaTB" FontSize="14" Text="Mana:" HorizontalAlignment="Left" Width="70" Margin="0,191,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="pAttackTB" FontSize="14" Text="P.Attack:" HorizontalAlignment="Left" Width="70" Margin="0,211,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="mAttackTB" FontSize="14" Text="M.Attack:" HorizontalAlignment="Left" Width="70" Margin="0,231,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="evasionTB" FontSize="14" Text="Evasion:" HorizontalAlignment="Left" Width="70" Margin="0,270,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="crtTB" FontSize="14" Text="Crt.Chance:" Margin="0,251,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
-        <TextBlock x:Name="hpValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="75,171,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="mAttackValue" FontSize="14" Text="0" Margin="75,231,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
-        <TextBlock x:Name="crtValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="75,251,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="manaValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="75,191,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="pAttackValue" FontSize="14" Text="0" Margin="75,211,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
-        <TextBlock x:Name="evasionValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="75,270,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="breakoutsTB" FontSize="14" Text="breakouts:" HorizontalAlignment="Left" Width="70" Margin="0,290,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="breakoutsValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="75,290,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="NameTBSecondPlayer" FontSize="14" Text="Name:" Width="60" HorizontalAlignment="Left" Height="20" Margin="669,8,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="NameSecondPlayer" Width="134" Margin="730,8,0,0" Height="19" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="StrengthTBSecondPlayer" FontSize="14" Text="Strength:" Width="60" HorizontalAlignment="Left" Height="20" Margin="726,28,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="StrengthSecondPlayer" FontSize="14" Text="0" Margin="824,28,0,0" Width="20" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="DexterityTBSecondPlayer" FontSize="14" Text="Dexterity:" HorizontalAlignment="Left" Width="60" Height="20" Margin="726,49,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="DexteritySecondPlayer" FontSize="14" Text="0" Width="20" HorizontalAlignment="Left" Margin="824,50,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="LuckTBSecondPlayer" FontSize="14" Text="Luck:" HorizontalAlignment="Left" Width="60" Height="20" Margin="726,70,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="LuckSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="824,70,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="ConstitutionTBSecondPlayer" FontSize="14" Text="Physique:" HorizontalAlignment="Left" Width="60" Height="20" Margin="726,91,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="ConstitutionSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="824,91,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="IntteligenceTBSecondPlayer" FontSize="14" Text="Intellect:" HorizontalAlignment="Left" Width="60" Height="20" Margin="726,112,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="IntteligenceSecondPlayer" FontSize="14" Text="0" Margin="824,112,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button x:Name="StrengthMinusSecondPlayer" Click="StrengthMinus_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="787,28,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button x:Name="DexterityMinusSecondPlayer" Click="DexterityMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="787,49,0,0" VerticalAlignment="Top" Grid.Column="1" />
-        <Button x:Name="LuckMinusSecondPlayer"  Click="LuckMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="787,70,0,0" VerticalAlignment="Top" Grid.Column="1" />
-        <Button x:Name="ConstitutionMinusSecondPlayer" Click="ConstitutionMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="787,91,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button x:Name="IntelligenceMinusSecondPlayer" Click="IntelligenceMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="787,112,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button x:Name="StrengthPlusSecondPlayer" Click="StrengthPlus_Click" Content="+" FontSize="14" Cursor="Hand" Margin="844,28,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button x:Name="DexterityPlusSecondPlayer" Click="DexterityPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="844,49,0,0" Grid.Column="1" VerticalAlignment="Top"/>
-        <Button x:Name="LuckPlusSecondPlayer" Click="LuckPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="844,70,0,0" Grid.Column="1" VerticalAlignment="Top"/>
-        <Button x:Name="ConstitutionPlusSecondPlayer" Click="ConstitutionPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="844,91,0,0" Grid.Column="1" VerticalAlignment="Top"/>
-        <Button x:Name="IntelligencePlusSecondPlayer" Click="IntelligencePlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="844,112,0,0" Grid.Column="1" VerticalAlignment="Top"/>
-        <TextBlock x:Name="FreePointsTBSecondPlayer" FontSize="14" Text="Points:" HorizontalAlignment="Left" Width="60" Margin="769,137,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="FreePointsSecondPlayer" FontSize="14" Text="15" Width="20" HorizontalAlignment="Left" Margin="830,137,0,0" Height="20" VerticalAlignment="Top" RenderTransformOrigin="0.95,0.585" Grid.Column="1"/>
-        <TextBlock x:Name="LVLTBSecondPlayer" FontSize="14" Text="LVL:" HorizontalAlignment="Left" Width="70" Height="20" Margin="769,310,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="lvlValueSecondPlayer" FontSize="14" Text="1" HorizontalAlignment="Left" Width="20" Margin="844,310,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="hpTBSecondPlayer" FontSize="14" Text="HP:" HorizontalAlignment="Left" Width="70" Margin="769,171,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="manaTBSecondPlayer" FontSize="14" Text="Mana:" HorizontalAlignment="Left" Width="70" Margin="769,191,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="pAttackTBSecondPlayer" FontSize="14" Text="P.Attack:" HorizontalAlignment="Left" Width="70" Margin="769,211,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="mAttackTBSecondPlayer" FontSize="14" Text="M.Attack:" HorizontalAlignment="Left" Width="70" Margin="769,231,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="evasionTBSecondPlayer" FontSize="14" Text="Evasion:" HorizontalAlignment="Left" Width="70" Margin="769,270,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="crtTBSecondPlayer" FontSize="14" Text="Crt.Chance:" Margin="769,251,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Grid.Column="1"/>
-        <TextBlock x:Name="hpValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="844,171,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="mAttackValueSecondPlayer" FontSize="14" Text="0" Margin="844,231,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20" Grid.Column="1"/>
-        <TextBlock x:Name="crtValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="844,251,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="manaValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="844,191,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="pAttackValueSecondPlayer" FontSize="14" Text="0" Margin="844,211,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20" Grid.Column="1"/>
-        <TextBlock x:Name="evasionValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="844,270,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="breakoutsTBSecondPlayer" FontSize="14" Text="breakouts:" HorizontalAlignment="Left" Width="70" Margin="769,290,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock x:Name="breakoutsValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="844,290,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
-        <!--<Image x:Name="Fighter1" Height="191" Width="153" HorizontalAlignment="Center" Source="C:\Users\vnsxd\Desktop\f1.png" Grid.Column="1" Margin="0,144,0,0" VerticalAlignment="Top" />
-        <Image x:Name="Fighter2" Height="191" Width="153" HorizontalAlignment="Left" Source="C:\Users\vnsxd\Desktop\f2.png" Grid.Column="1" Margin="10,139,0,0" VerticalAlignment="Top" />-->
+        <TextBlock x:Name="FreePointsTB" FontSize="14" Text="Points:" HorizontalAlignment="Left" Width="60" Margin="12,137,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="FreePoints" FontSize="14" Text="15" Width="20" HorizontalAlignment="Left" Margin="73,137,0,0" Height="20" VerticalAlignment="Top" RenderTransformOrigin="0.95,0.585"/>
+        <TextBlock x:Name="NameTB" FontSize="14" Text="Name:" Width="60" HorizontalAlignment="Left" Height="20" Margin="12,8,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Name" Width="134" Margin="73,8,0,0" Height="19" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="StrengthTB" FontSize="14" Text="Strength:" Width="60" HorizontalAlignment="Left" Height="20" Margin="12,28,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Strength" FontSize="14" Text="0" Margin="110,28,0,0" Width="20" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="DexterityTB" FontSize="14" Text="Dexterity:" HorizontalAlignment="Left" Width="60" Height="20" Margin="12,49,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Dexterity" FontSize="14" Text="0" Width="20" HorizontalAlignment="Left" Margin="110,50,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="LuckTB" FontSize="14" Text="Luck:" HorizontalAlignment="Left" Width="60" Height="20" Margin="12,70,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Luck" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="110,70,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ConstitutionTB" FontSize="14" Text="Physique:" HorizontalAlignment="Left" Width="60" Height="20" Margin="12,91,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Constitution" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="110,91,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="IntteligenceTB" FontSize="14" Text="Intellect:" HorizontalAlignment="Left" Width="60" Height="20" Margin="12,112,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Intteligence" FontSize="14" Text="0" Margin="110,112,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="LVLTB" FontSize="14" Text="LVL:" HorizontalAlignment="Left" Width="70" Height="20" Margin="12,310,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lvlValue" FontSize="14" Text="1" HorizontalAlignment="Left" Width="20" Margin="87,310,0,0" Height="20" VerticalAlignment="Top"/>
+        <Button x:Name="StrengthMinus" Click="StrengthMinus_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="73,28,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="DexterityMinus" Click="DexterityMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="73,49,0,0" VerticalAlignment="Top" />
+        <Button x:Name="LuckMinus"  Click="LuckMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="73,70,0,0" VerticalAlignment="Top" />
+        <Button x:Name="ConstitutionMinus" Click="ConstitutionMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="73,91,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="IntelligenceMinus" Click="IntelligenceMinus_Click" Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="73,112,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="StrengthPlus" Click="StrengthPlus_Click" Content="+" FontSize="14" Cursor="Hand" Margin="130,28,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="DexterityPlus" Click="DexterityPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="130,49,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="LuckPlus" Click="LuckPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="130,70,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="ConstitutionPlus" Click="ConstitutionPlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="130,91,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="IntelligencePlus" Click="IntelligencePlus_Click" Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="130,112,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="hpTB" FontSize="14" Text="HP:" HorizontalAlignment="Left" Width="70" Margin="12,171,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="manaTB" FontSize="14" Text="Mana:" HorizontalAlignment="Left" Width="70" Margin="12,191,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="pAttackTB" FontSize="14" Text="P.Attack:" HorizontalAlignment="Left" Width="70" Margin="12,211,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="mAttackTB" FontSize="14" Text="M.Attack:" HorizontalAlignment="Left" Width="70" Margin="12,231,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="evasionTB" FontSize="14" Text="Evasion:" HorizontalAlignment="Left" Width="70" Margin="12,270,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="crtTB" FontSize="14" Text="Crt.Chance:" Margin="12,251,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
+        <TextBlock x:Name="hpValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="87,171,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="mAttackValue" FontSize="14" Text="0" Margin="87,231,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
+        <TextBlock x:Name="crtValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="87,251,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="manaValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="87,191,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="pAttackValue" FontSize="14" Text="0" Margin="87,211,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20"/>
+        <TextBlock x:Name="evasionValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="87,270,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="breakoutsTB" FontSize="14" Text="breakouts:" HorizontalAlignment="Left" Width="70" Margin="12,290,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="breakoutsValue" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="87,290,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="NameTBSecondPlayer" FontSize="14" Text="Name:" Width="60" HorizontalAlignment="Left" Height="20" Margin="659,8,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="NameSecondPlayer" Width="134" Margin="720,8,0,0" Height="19" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="StrengthTBSecondPlayer" FontSize="14" Text="Strength:" Width="60" HorizontalAlignment="Left" Height="20" Margin="716,28,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="StrengthSecondPlayer" FontSize="14" Text="0" Margin="814,28,0,0" Width="20" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="DexterityTBSecondPlayer" FontSize="14" Text="Dexterity:" HorizontalAlignment="Left" Width="60" Height="20" Margin="716,49,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="DexteritySecondPlayer" FontSize="14" Text="0" Width="20" HorizontalAlignment="Left" Margin="814,50,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="LuckTBSecondPlayer" FontSize="14" Text="Luck:" HorizontalAlignment="Left" Width="60" Height="20" Margin="716,70,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="LuckSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="814,70,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="ConstitutionTBSecondPlayer" FontSize="14" Text="Physique:" HorizontalAlignment="Left" Width="60" Height="20" Margin="716,91,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="ConstitutionSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="814,91,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="IntteligenceTBSecondPlayer" FontSize="14" Text="Intellect:" HorizontalAlignment="Left" Width="60" Height="20" Margin="716,112,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="IntteligenceSecondPlayer" FontSize="14" Text="0" Margin="814,112,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="StrengthMinusSecondPlayer" Click="StrengthMinusSecondPlayer_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="777,28,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="DexterityMinusSecondPlayer" Click="DexterityMinusSecondPlayer_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="777,49,0,0" VerticalAlignment="Top" Grid.Column="1" />
+        <Button x:Name="LuckMinusSecondPlayer"  Click="LuckMinusSecondPlayer_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="777,70,0,0" VerticalAlignment="Top" Grid.Column="1" />
+        <Button x:Name="ConstitutionMinusSecondPlayer" Click="ConstitutionMinusSecondPlayer_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="777,91,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="IntelligenceMinusSecondPlayer" Click="IntelligenceMinusSecondPlayer_Click"  Content="-" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="777,112,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="StrengthPlusSecondPlayer" Click="StrengthPlusSecondPlayer_Click"  Content="+" FontSize="14" Cursor="Hand" Margin="834,28,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="DexterityPlusSecondPlayer" Click="DexterityPlusSecondPlayer_Click"  Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="834,49,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+        <Button x:Name="LuckPlusSecondPlayer" Click="LuckPlusSecondPlayer_Click"  Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="834,70,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+        <Button x:Name="ConstitutionPlusSecondPlayer" Click="ConstitutionPlusSecondPlayer_Click"  Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="834,91,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+        <Button x:Name="IntelligencePlusSecondPlayer" Click="IntelligencePlusSecondPlayer_Click"  Content="+" Width="20" FontSize="14" Height="20" Cursor="Hand" HorizontalAlignment="Left" Margin="834,112,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+        <TextBlock x:Name="FreePointsTBSecondPlayer" FontSize="14" Text="Points:" HorizontalAlignment="Left" Width="60" Margin="759,137,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="FreePointsSecondPlayer" FontSize="14" Text="15" Width="20" HorizontalAlignment="Left" Margin="820,137,0,0" Height="20" VerticalAlignment="Top" RenderTransformOrigin="0.95,0.585" Grid.Column="1"/>
+        <TextBlock x:Name="LVLTBSecondPlayer" FontSize="14" Text="LVL:" HorizontalAlignment="Left" Width="70" Height="20" Margin="759,310,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="lvlValueSecondPlayer" FontSize="14" Text="1" HorizontalAlignment="Left" Width="20" Margin="834,310,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="hpTBSecondPlayer" FontSize="14" Text="HP:" HorizontalAlignment="Left" Width="70" Margin="759,171,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="manaTBSecondPlayer" FontSize="14" Text="Mana:" HorizontalAlignment="Left" Width="70" Margin="759,191,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="pAttackTBSecondPlayer" FontSize="14" Text="P.Attack:" HorizontalAlignment="Left" Width="70" Margin="759,211,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="mAttackTBSecondPlayer" FontSize="14" Text="M.Attack:" HorizontalAlignment="Left" Width="70" Margin="759,231,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="evasionTBSecondPlayer" FontSize="14" Text="Evasion:" HorizontalAlignment="Left" Width="70" Margin="759,270,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="crtTBSecondPlayer" FontSize="14" Text="Crt.Chance:" Margin="759,251,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Grid.Column="1"/>
+        <TextBlock x:Name="hpValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="834,171,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="mAttackValueSecondPlayer" FontSize="14" Text="0" Margin="834,231,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20" Grid.Column="1"/>
+        <TextBlock x:Name="crtValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="834,251,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="manaValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="834,191,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="pAttackValueSecondPlayer" FontSize="14" Text="0" Margin="834,211,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20" Grid.Column="1"/>
+        <TextBlock x:Name="evasionValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="834,270,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="breakoutsTBSecondPlayer" FontSize="14" Text="breakouts:" HorizontalAlignment="Left" Width="70" Margin="759,290,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="breakoutsValueSecondPlayer" FontSize="14" Text="0" HorizontalAlignment="Left" Width="20" Margin="834,290,0,0" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
+        <Image x:Name="Fighter1" Height="191" Width="153" HorizontalAlignment="Left" Source="C:\Users\vnsxd\Desktop\f1.png" Grid.Column="1" Margin="601,144,0,0" VerticalAlignment="Top" />
+        <Image x:Name="Fighter2" Height="191" Width="153" HorizontalAlignment="Left" Source="C:\Users\vnsxd\Desktop\f2.png" Margin="107,144,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
