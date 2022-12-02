@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleForTwoPlayer", "BattleForTwoPlayer\BattleForTwoPlayer.csproj", "{D19991D7-271D-40B8-B88B-00C508CECD18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D19991D7-271D-40B8-B88B-00C508CECD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D19991D7-271D-40B8-B88B-00C508CECD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D19991D7-271D-40B8-B88B-00C508CECD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D19991D7-271D-40B8-B88B-00C508CECD18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78ECD5D1-2897-4E1D-A1DF-91DD5652CF18}
+	EndGlobalSection
+EndGlobal
