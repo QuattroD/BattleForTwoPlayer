@@ -21,8 +21,8 @@ namespace BattleForTwoPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<FighterModelFirstPlayer> fighters = new List<FighterModelFirstPlayer>();
-        public List<string> fightersName = new List<string>();
+        /*public List<FighterModelFirstPlayer> fighters = new List<FighterModelFirstPlayer>();
+        public List<string> fightersName = new List<string>();  */    
         public MainWindow()
         {
             InitializeComponent();
@@ -368,8 +368,6 @@ namespace BattleForTwoPlayer
 
         private void Ready1_Click(object sender, RoutedEventArgs e)
         {
-            List<FighterModelFirstPlayer> fighters = new List<FighterModelFirstPlayer>();
-            List<string> fightersName = new List<string>();
             if (Ready1.Content.ToString() == "Ready")
             {
                 Name.IsEnabled = false;
@@ -393,10 +391,10 @@ namespace BattleForTwoPlayer
                 breakoutsValue.Text = $"{(int.Parse(Strength.Text) - int.Parse(StrengthSecondPlayer.Text)) * 0.05}";
                 Ready1.Content = "Unready";
                 ReadyFirst = true;
-                FighterModelFirstPlayer fighter = new FighterModelFirstPlayer(Name.Text, int.Parse(lvlValue.Text), int.Parse(Strength.Text), int.Parse(Dexterity.Text), int.Parse(Luck.Text), int.Parse(Constitution.Text), int.Parse(Intteligence.Text));
-                fighters.Add(fighter);
+                /*FighterModelFirstPlayer unit = new FighterModelFirstPlayer();
+                fighters.Add();
                 fightersName.Add(Name.Text);
-                Units.ItemsSource = fightersName;
+                Units.ItemsSource = fightersName;*/
             }
             else if (Ready1.Content.ToString() == "Unready")
             {
@@ -433,7 +431,7 @@ namespace BattleForTwoPlayer
 
         private void Units_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach(var item in fighters)
+            /*foreach(var item in fighters)
             {
                 if (Units.SelectedValue.ToString() == item.Name)
                 {
@@ -446,7 +444,7 @@ namespace BattleForTwoPlayer
                     lvlValue.Text = item.LVL.ToString();
 
                 }
-            }
+            }*/
         }
     }
 }

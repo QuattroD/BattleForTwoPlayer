@@ -92,6 +92,6 @@
         <Button x:Name="Ready1" Click="Ready1_Click" Content="Ready" HorizontalAlignment="Left" Margin="33,354,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
         <Button x:Name="Ready2" Click="Ready2_Click" Content="Ready" HorizontalAlignment="Left" Margin="780,354,0,0" VerticalAlignment="Top" Grid.Column="1" Width="60" Height="25"/>
         <Button x:Name="FightB" Content="Fight" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Width="60" Height="25" IsEnabled="False"/>
-        <ComboBox x:Name="Units" HorizontalAlignment="Left" Margin="212,8,0,0" VerticalAlignment="Top" Width="120" Height="20" SelectionChanged="Units_SelectionChanged"/>
+        <ComboBox x:Name="Units" HorizontalAlignment="Left" Margin="212,8,0,0" VerticalAlignment="Top" Width="120" Height="20" SelectionChanged="Units_SelectionChanged" Visibility="Hidden"/>
     </Grid>
 </Window>
