@@ -8,30 +8,30 @@
         Title="MainWindow" Height="auto" Width="auto">
     <Grid>
         <TextBlock x:Name="FreePoints" Margin="221,10,0,0" FontSize="36" Text="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="46"/>
-        <TextBlock x:Name="NameTB" Margin="18,64,824,399" FontSize="14" Text="Name:"/>
-        <TextBox x:Name="Name" Margin="81,64,740,399" />
-        <TextBlock x:Name="StrengthTB" Margin="18,90,824,373" FontSize="14" Text="Strength:"/>
-        <TextBlock x:Name="Strength" Margin="110,90,769,373" FontSize="14" Text="0"/>
-        <TextBlock x:Name="DexterityTB" Margin="18,116,824,347" FontSize="14" Text="Dexterity:"/>
-        <TextBlock x:Name="Dexterity" Margin="110,116,769,347" FontSize="14" Text="0"/>
-        <TextBlock x:Name="LuckTB" Margin="18,142,824,321" FontSize="14" Text="Luck:"/>
-        <TextBlock x:Name="Luck" Margin="110,142,769,321" FontSize="14" Text="0"/>
-        <TextBlock x:Name="ConstitutionTB" Margin="18,168,824,295" FontSize="14" Text="Physique:"/>
-        <TextBlock x:Name="Constitution" Margin="110,168,769,295" FontSize="14" Text="0"/>
-        <TextBlock x:Name="IntteligenceTB" Margin="18,194,824,269" FontSize="14" Text="Intellect:"/>
-        <TextBlock x:Name="Intteligence" Margin="110,194,769,269" FontSize="14" Text="0"/>
-        <TextBlock x:Name="LVLTB" Margin="18,215,824,248" FontSize="14" Text="LVL:"/>
-        <TextBlock x:Name="LVL" Margin="81,215,798,248" FontSize="14" Text="1"/>
-        <Button x:Name="Create" Content="Create" Click="ButtonSave_Click" HorizontalAlignment="Left" Margin="28,280,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="StrengthMinus" Click="StrengthMinus_Click"  Content="-" Width="21" FontSize="20" Height="21" Margin="81,90,798,373" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="DexterityMinus" Click="DexterityMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,116,798,347" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="LuckMinus"  Click="LuckMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,142,798,321" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="ConstitutionMinus" Click="ConstitutionMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,168,798,295" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="IntelligenceMinus" Click="IntelligenceMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,194,798,269" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="StrengthPlus" Click="StrengthPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,90,748,373" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="DexterityPlus" Click="DexterityPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,116,748,347" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="LuckPlus" Click="LuckPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,142,748,321" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="ConstitutionPlus" Click="ConstitutionPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,168,748,295" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="IntelligencePlus" Click="IntelligencePlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,194,748,269" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-    </Grid>
+            <TextBlock x:Name="NameTB" Margin="18,64,824,399" FontSize="14" Text="Name:"/>
+            <TextBox x:Name="Name" Margin="81,64,740,399"/>
+            <TextBlock x:Name="StrengthTB" Margin="18,90,824,373" FontSize="14" Text="Strength:"/>
+            <TextBlock x:Name="Strength" Margin="110,90,769,373" FontSize="14" Text="0"/>
+            <TextBlock x:Name="DexterityTB" Margin="18,116,824,347" FontSize="14" Text="Dexterity:"/>
+            <TextBlock x:Name="Dexterity" Margin="110,116,769,347" FontSize="14" Text="0"/>
+            <TextBlock x:Name="LuckTB" Margin="18,142,824,321" FontSize="14" Text="Luck:"/>
+            <TextBlock x:Name="Luck" Margin="110,142,769,321" FontSize="14" Text="0"/>
+            <TextBlock x:Name="ConstitutionTB" Margin="18,168,824,295" FontSize="14" Text="Physique:"/>
+            <TextBlock x:Name="Constitution" Margin="110,168,769,295" FontSize="14" Text="0"/>
+            <TextBlock x:Name="IntteligenceTB" Margin="18,194,824,269" FontSize="14" Text="Intellect:"/>
+            <TextBlock x:Name="Intteligence" Margin="110,194,769,269" FontSize="14" Text="0"/>
+            <TextBlock x:Name="LVLTB" Margin="18,215,824,248" FontSize="14" Text="LVL:"/>
+            <TextBlock x:Name="LVL" Margin="81,215,798,248" FontSize="14" Text="1"/>
+            <Button x:Name="Create" Content="Create" Click="ButtonSave_Click" HorizontalAlignment="Left" Margin="28,280,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="StrengthMinus" Click="StrengthMinus_Click"  Content="-" Width="21" FontSize="14" Height="21" Margin="81,90,798,373" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="DexterityMinus" Click="DexterityMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,116,798,347" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="LuckMinus"  Click="LuckMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,142,798,321" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="ConstitutionMinus" Click="ConstitutionMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,168,798,295" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="IntelligenceMinus" Click="IntelligenceMinus_Click" Content="-" Width="21" FontSize="14" Height="21" Margin="81,194,798,269" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="StrengthPlus" Click="StrengthPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,90,748,373" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="DexterityPlus" Click="DexterityPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,116,748,347" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="LuckPlus" Click="LuckPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,142,748,321" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="ConstitutionPlus" Click="ConstitutionPlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,168,748,295" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="IntelligencePlus" Click="IntelligencePlus_Click" Content="+" Width="21" FontSize="14" Height="21" Margin="131,194,748,269" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
 </Window>

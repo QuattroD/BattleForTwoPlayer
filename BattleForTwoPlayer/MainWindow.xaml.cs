@@ -33,11 +33,10 @@ namespace BattleForTwoPlayer
         private void StrengthMinus_Click(object sender, RoutedEventArgs e)
         {
             if(Strength.Text == "0")
-            {
-                
+            {              
                 return;
             }
-            else if(FreePoints.Text != "0")
+            else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Strength.Text = $"{int.Parse(Strength.Text) - 1}";
@@ -50,7 +49,7 @@ namespace BattleForTwoPlayer
             {
                 return;
             }
-            else if (FreePoints.Text != "0")
+            else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Dexterity.Text = $"{int.Parse(Dexterity.Text) - 1}";
@@ -64,7 +63,7 @@ namespace BattleForTwoPlayer
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 return;
             }
-            else if (FreePoints.Text != "0")
+            else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Luck.Text = $"{int.Parse(Luck.Text) - 1}";
@@ -78,7 +77,7 @@ namespace BattleForTwoPlayer
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 return;
             }
-            else if (FreePoints.Text != "0")
+            else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Constitution.Text = $"{int.Parse(Constitution.Text) - 1}";
@@ -92,7 +91,7 @@ namespace BattleForTwoPlayer
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 return;
             }
-            else if (FreePoints.Text != "0")
+            else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Intteligence.Text = $"{int.Parse(Intteligence.Text) - 1}";
