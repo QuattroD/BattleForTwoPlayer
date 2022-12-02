@@ -25,11 +25,6 @@ namespace BattleForTwoPlayer
             InitializeComponent();
         }
 
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
-            FighterModel fighterModel = new FighterModel(Name.Text, int.Parse(LVL.Text), int.Parse(Strength.Text), int.Parse(Dexterity.Text), int.Parse(Luck.Text), int.Parse(Constitution.Text), int.Parse(Intteligence.Text));
-        }
-
         private void StrengthMinus_Click(object sender, RoutedEventArgs e)
         {
             if(Strength.Text == "0")
@@ -40,6 +35,7 @@ namespace BattleForTwoPlayer
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Strength.Text = $"{int.Parse(Strength.Text) - 1}";
+                pAttackValue.Text = $"{int.Parse(pAttackValue.Text) - 1}";
             }
         }
 
@@ -60,7 +56,6 @@ namespace BattleForTwoPlayer
         {
             if (Luck.Text == "0")
             {
-                FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 return;
             }
             else
@@ -74,13 +69,13 @@ namespace BattleForTwoPlayer
         {
             if (Constitution.Text == "0")
             {
-                FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 return;
             }
             else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Constitution.Text = $"{int.Parse(Constitution.Text) - 1}";
+                hpValue.Text = $"{int.Parse(hpValue.Text) - 5}";
             }
         }
 
@@ -88,13 +83,14 @@ namespace BattleForTwoPlayer
         {
             if (Intteligence.Text == "0")
             {
-                FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 return;
             }
             else
             {
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Intteligence.Text = $"{int.Parse(Intteligence.Text) - 1}";
+                manaValue.Text = $"{int.Parse(manaValue.Text) - 7}";
+                mAttackValue.Text = $"{int.Parse(mAttackValue.Text) - 1}";
             }
         }
 
@@ -108,6 +104,7 @@ namespace BattleForTwoPlayer
             {
                 Strength.Text = $"{int.Parse(Strength.Text) + 1}";
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) - 1}";
+                pAttackValue.Text = $"{int.Parse(pAttackValue.Text) + 1}";
             }
         }
 
@@ -147,6 +144,7 @@ namespace BattleForTwoPlayer
             {
                 Constitution.Text = $"{int.Parse(Constitution.Text) + 1}";
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) - 1}";
+                hpValue.Text = $"{int.Parse(hpValue.Text) + 5}";
             }
         }
 
@@ -160,6 +158,8 @@ namespace BattleForTwoPlayer
             {
                 Intteligence.Text = $"{int.Parse(Intteligence.Text) + 1}";
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) - 1}";
+                manaValue.Text = $"{int.Parse(manaValue.Text) + 7}";
+                mAttackValue.Text = $"{int.Parse(mAttackValue.Text) + 1}";
             }
         }
     }

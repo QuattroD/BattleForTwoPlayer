@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleForTwoPlayer
 {
-    public class FighterModel
+    public class FighterModelFirstPlayer
     {
         public string Name { get; set; }
         public int LVL { get; set; }
@@ -18,11 +18,12 @@ namespace BattleForTwoPlayer
         public int Physical_Attack { get; set; }
         public int Evasion { get; set; }
         public int Critical_Chance { get; set; }
+        public int Penetration_Chance { get; set; }
         public int HealthPoint { get; set; }
         public int Magic_Attack { get; set; }
         public int Manapool { get; set; }
 
-        public FighterModel(string name, int lvl, int strength, int dexterity, int luck, int constitution, int intelligence)
+        public FighterModelFirstPlayer(string name, int lvl, int strength, int dexterity, int luck, int constitution, int intelligence)
         {
             Name = name;
             LVL = lvl;
