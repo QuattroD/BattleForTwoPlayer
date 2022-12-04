@@ -25,6 +25,14 @@ namespace BattleForTwoPlayer
         public MainWindow()
         {
             InitializeComponent();
+            Dictionary<int, int> explist = new Dictionary<int, int>()
+            {
+                {1, 100},
+                {2, 300},
+                {3, 800},
+                {4, 1800},
+                {5, 3000}
+            };
         }
 
         private void StrengthMinus_Click(object sender, RoutedEventArgs e)
@@ -505,12 +513,12 @@ namespace BattleForTwoPlayer
                         if (rnd.Next(0, 101) < (Convert.ToDouble(crtValue.Text) * 100))
                         {
                             hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - (int.Parse(pAttackValue.Text) * 2)}";
-                            MessageBox.Show($"Второму игроку крит Нанесен урон в размере {int.Parse(pAttackValue.Text) * 2}");
+                            MessageBox.Show($"Второму игроку нанесен крит. урон в размере {int.Parse(pAttackValue.Text) * 2}");
                         }
                         else
                         {
                             hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(pAttackValue.Text)}";
-                            MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(pAttackValue.Text)}");
+                            MessageBox.Show($"Второму игроку нанесен урон в размере {int.Parse(pAttackValue.Text)}");
                         }
                     }
                     if (int.Parse(hpValueSecondPlayer.Text) <= 0)
@@ -583,7 +591,7 @@ namespace BattleForTwoPlayer
                     if(rnd.Next(0, 101) < (Convert.ToDouble(breakoutsValue.Text) * 100))
                     {
                         hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(pAttackValue.Text)}";
-                        MessageBox.Show($"Второму игроку Нанесен урон через блок в размере {int.Parse(pAttackValue.Text)}");
+                        MessageBox.Show($"Второму игроку нанесен урон через блок в размере {int.Parse(pAttackValue.Text)}");
                     }
                     else
                     {
@@ -686,7 +694,7 @@ namespace BattleForTwoPlayer
                         if (rnd.Next(0, 101) < (Convert.ToDouble(breakoutsValueSecondPlayer.Text) * 100))
                         {
                             hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(pAttackValueSecondPlayer.Text)}";
-                            MessageBox.Show($"Первому игроку Нанесен урон через блок в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
+                            MessageBox.Show($"Первому игроку нанесен урон через блок в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
                         }
                         else
                         {
