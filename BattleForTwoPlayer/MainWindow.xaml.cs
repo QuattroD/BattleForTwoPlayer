@@ -21,17 +21,15 @@ namespace BattleForTwoPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
-        /*public List<FighterModelFirstPlayer> fighters = new List<FighterModelFirstPlayer>();
-        public List<string> fightersName = new List<string>();  */    
+        public Random rnd = new Random();
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         private void StrengthMinus_Click(object sender, RoutedEventArgs e)
         {
-            if(Strength.Text == "0")
+            if(Strength.Text == "1")
             {              
                 return;
             }
@@ -45,7 +43,7 @@ namespace BattleForTwoPlayer
 
         private void DexterityMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (Dexterity.Text == "0")
+            if (Dexterity.Text == "1")
             {
                 return;
             }
@@ -58,7 +56,7 @@ namespace BattleForTwoPlayer
 
         private void LuckMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (Luck.Text == "0")
+            if (Luck.Text == "1")
             {
                 return;
             }
@@ -71,7 +69,7 @@ namespace BattleForTwoPlayer
 
         private void ConstitutionMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (Constitution.Text == "0")
+            if (Constitution.Text == "1")
             {
                 return;
             }
@@ -85,7 +83,7 @@ namespace BattleForTwoPlayer
 
         private void IntelligenceMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (Intteligence.Text == "0")
+            if (Intteligence.Text == "1")
             {
                 return;
             }
@@ -94,7 +92,7 @@ namespace BattleForTwoPlayer
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) + 1}";
                 Intteligence.Text = $"{int.Parse(Intteligence.Text) - 1}";
                 manaValue.Text = $"{int.Parse(manaValue.Text) - 7}";
-                mAttackValue.Text = $"{int.Parse(mAttackValue.Text) - 1}";
+                mAttackValue.Text = $"{int.Parse(mAttackValue.Text) - 2}";
             }
         }
 
@@ -163,13 +161,13 @@ namespace BattleForTwoPlayer
                 Intteligence.Text = $"{int.Parse(Intteligence.Text) + 1}";
                 FreePoints.Text = $"{int.Parse(FreePoints.Text) - 1}";
                 manaValue.Text = $"{int.Parse(manaValue.Text) + 7}";
-                mAttackValue.Text = $"{int.Parse(mAttackValue.Text) + 1}";
+                mAttackValue.Text = $"{int.Parse(mAttackValue.Text) + 2}";
             }
         }
 
         private void StrengthMinusSecondPlayer_Click(object sender, RoutedEventArgs e)
         {
-            if (StrengthSecondPlayer.Text == "0")
+            if (StrengthSecondPlayer.Text == "1")
             {
                 return;
             }
@@ -183,7 +181,7 @@ namespace BattleForTwoPlayer
 
         private void DexterityMinusSecondPlayer_Click(object sender, RoutedEventArgs e)
         {
-            if (DexteritySecondPlayer.Text == "0")
+            if (DexteritySecondPlayer.Text == "1")
             {
                 return;
             }
@@ -196,7 +194,7 @@ namespace BattleForTwoPlayer
 
         private void LuckMinusSecondPlayer_Click(object sender, RoutedEventArgs e)
         {
-            if (LuckSecondPlayer.Text == "0")
+            if (LuckSecondPlayer.Text == "1")
             {
                 return;
             }
@@ -209,7 +207,7 @@ namespace BattleForTwoPlayer
 
         private void ConstitutionMinusSecondPlayer_Click(object sender, RoutedEventArgs e)
         {
-            if (ConstitutionSecondPlayer.Text == "0")
+            if (ConstitutionSecondPlayer.Text == "1")
             {
                 return;
             }
@@ -223,7 +221,7 @@ namespace BattleForTwoPlayer
 
         private void IntelligenceMinusSecondPlayer_Click(object sender, RoutedEventArgs e)
         {
-            if (IntteligenceSecondPlayer.Text == "0")
+            if (IntteligenceSecondPlayer.Text == "1")
             {
                 return;
             }
@@ -232,7 +230,7 @@ namespace BattleForTwoPlayer
                 FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) + 1}";
                 IntteligenceSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) - 1}";
                 manaValueSecondPlayer.Text = $"{int.Parse(manaValueSecondPlayer.Text) - 7}";
-                mAttackValueSecondPlayer.Text = $"{int.Parse(mAttackValueSecondPlayer.Text) - 1}";
+                mAttackValueSecondPlayer.Text = $"{int.Parse(mAttackValueSecondPlayer.Text) - 2}";
             }
         }
 
@@ -301,7 +299,7 @@ namespace BattleForTwoPlayer
                 IntteligenceSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) + 1}";
                 FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) - 1}";
                 manaValueSecondPlayer.Text = $"{int.Parse(manaValueSecondPlayer.Text) + 7}";
-                mAttackValueSecondPlayer.Text = $"{int.Parse(mAttackValueSecondPlayer.Text) + 1}";
+                mAttackValueSecondPlayer.Text = $"{int.Parse(mAttackValueSecondPlayer.Text) + 2}";
             }
         }
 
@@ -328,11 +326,13 @@ namespace BattleForTwoPlayer
                 LuckPlusSecondPlayer.IsEnabled = false;
                 ConstitutionPlusSecondPlayer.IsEnabled = false;
                 IntelligencePlusSecondPlayer.IsEnabled = false;
-                crtValueSecondPlayer.Text = $"{(int.Parse(LuckSecondPlayer.Text) - int.Parse(Luck.Text) * 0.5) * 0.1}";
+                crtValueSecondPlayer.Text = $"{(int.Parse(LuckSecondPlayer.Text) - (int.Parse(Luck.Text) * 0.5)) * 0.1}";
                 evasionValueSecondPlayer.Text = $"{(int.Parse(DexteritySecondPlayer.Text) - int.Parse(Dexterity.Text)) * 0.1}";
                 breakoutsValueSecondPlayer.Text = $"{(int.Parse(StrengthSecondPlayer.Text) - int.Parse(Strength.Text)) * 0.05}";
+                /*Exp.Text = $"EXP: {}/{}";*/
                 Ready2.Content = "Unready";
                 ReadySecond = true;
+                FighterModel Player2 = new FighterModel(Name.Text, int.Parse(lvlValue.Text), int.Parse(Strength.Text), int.Parse(Dexterity.Text), int.Parse(Luck.Text), int.Parse(Constitution.Text), int.Parse(Intteligence.Text));
             }
             else if (Ready2.Content.ToString() == "Unready")
             {
@@ -386,15 +386,12 @@ namespace BattleForTwoPlayer
                 LuckPlus.IsEnabled = false;
                 ConstitutionPlus.IsEnabled = false;
                 IntelligencePlus.IsEnabled = false;
-                crtValue.Text = $"{(int.Parse(Luck.Text) - int.Parse(LuckSecondPlayer.Text) * 0.5) * 0.1}";
+                crtValue.Text = $"{(int.Parse(Luck.Text) - (int.Parse(LuckSecondPlayer.Text) * 0.5)) * 0.1}";
                 evasionValue.Text = $"{(int.Parse(Dexterity.Text) - int.Parse(DexteritySecondPlayer.Text)) * 0.1}";
                 breakoutsValue.Text = $"{(int.Parse(Strength.Text) - int.Parse(StrengthSecondPlayer.Text)) * 0.05}";
                 Ready1.Content = "Unready";
                 ReadyFirst = true;
-                /*FighterModelFirstPlayer unit = new FighterModelFirstPlayer();
-                fighters.Add();
-                fightersName.Add(Name.Text);
-                Units.ItemsSource = fightersName;*/
+                FighterModel Player1 = new FighterModel(Name.Text, int.Parse(lvlValue.Text), int.Parse(Strength.Text), int.Parse(Dexterity.Text), int.Parse(Luck.Text), int.Parse(Constitution.Text), int.Parse(Intteligence.Text));
             }
             else if (Ready1.Content.ToString() == "Unready")
             {
@@ -429,22 +426,444 @@ namespace BattleForTwoPlayer
             }
         }
 
-        private void Units_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void FightB_Click(object sender, RoutedEventArgs e)
         {
-            /*foreach(var item in fighters)
-            {
-                if (Units.SelectedValue.ToString() == item.Name)
-                {
-                    Name.Text = item.Name;
-                    Strength.Text = item.Strength.ToString();
-                    Dexterity.Text = item.Dexterity.ToString();
-                    Luck.Text = item.Luck.ToString();
-                    Constitution.Text = item.Constitution.ToString();
-                    Intteligence.Text = item.Intelligence.ToString();
-                    lvlValue.Text = item.LVL.ToString();
+            DexterityTB.Visibility = Visibility.Hidden;
+            LuckTB.Visibility = Visibility.Hidden;
+            ConstitutionTB.Visibility = Visibility.Hidden;
+            IntteligenceTB.Visibility = Visibility.Hidden;
+            Dexterity.Visibility = Visibility.Hidden;
+            FreePoints.Visibility = Visibility.Hidden;
+            FreePointsTB.Visibility = Visibility.Hidden;
+            Strength.Visibility = Visibility.Hidden;
+            StrengthTB.Visibility = Visibility.Hidden;
+            Luck.Visibility = Visibility.Hidden;
+            Constitution.Visibility = Visibility.Hidden;
+            Intteligence.Visibility = Visibility.Hidden;
+            StrengthMinus.Visibility = Visibility.Hidden;
+            DexterityMinus.Visibility = Visibility.Hidden;
+            LuckMinus.Visibility = Visibility.Hidden;
+            ConstitutionMinus.Visibility = Visibility.Hidden;
+            IntelligenceMinus.Visibility = Visibility.Hidden;
+            StrengthPlus.Visibility = Visibility.Hidden;
+            DexterityPlus.Visibility = Visibility.Hidden;
+            LuckPlus.Visibility = Visibility.Hidden;
+            ConstitutionPlus.Visibility = Visibility.Hidden;
+            IntelligencePlus.Visibility = Visibility.Hidden;
+            TargetAttack.Visibility= Visibility.Visible;
+            TargetDefence.Visibility = Visibility.Visible;
+            AttackOrDefend.Visibility = Visibility.Visible;
+            ChooseAttackTB.Visibility = Visibility.Visible;
+            ChooseDefenceTB.Visibility = Visibility.Visible;
+            Ready1.Visibility = Visibility.Hidden;
 
+            DexterityTBSecondPlayer.Visibility = Visibility.Hidden;
+            LuckTBSecondPlayer.Visibility = Visibility.Hidden;
+            ConstitutionTBSecondPlayer.Visibility = Visibility.Hidden;
+            IntteligenceTBSecondPlayer.Visibility = Visibility.Hidden;
+            DexteritySecondPlayer.Visibility = Visibility.Hidden;
+            FreePointsSecondPlayer.Visibility = Visibility.Hidden;
+            FreePointsTBSecondPlayer.Visibility = Visibility.Hidden;
+            StrengthSecondPlayer.Visibility = Visibility.Hidden;
+            StrengthTBSecondPlayer.Visibility = Visibility.Hidden;
+            LuckSecondPlayer.Visibility = Visibility.Hidden;
+            ConstitutionSecondPlayer.Visibility = Visibility.Hidden;
+            IntteligenceSecondPlayer.Visibility = Visibility.Hidden;
+            StrengthMinusSecondPlayer.Visibility = Visibility.Hidden;
+            DexterityMinusSecondPlayer.Visibility = Visibility.Hidden;
+            LuckMinusSecondPlayer.Visibility = Visibility.Hidden;
+            ConstitutionMinusSecondPlayer.Visibility = Visibility.Hidden;
+            IntelligenceMinusSecondPlayer.Visibility = Visibility.Hidden;
+            StrengthPlusSecondPlayer.Visibility = Visibility.Hidden;
+            DexterityPlusSecondPlayer.Visibility = Visibility.Hidden;
+            LuckPlusSecondPlayer.Visibility = Visibility.Hidden;
+            ConstitutionPlusSecondPlayer.Visibility = Visibility.Hidden;
+            IntelligencePlusSecondPlayer.Visibility = Visibility.Hidden;
+            TargetAttackSecondPlayer.Visibility = Visibility.Visible;
+            TargetDefenceSecondPlayer.Visibility = Visibility.Visible;
+            ChooseAttackTBSecondPlayer.Visibility = Visibility.Visible;
+            ChooseDefenceTBSecondPlayer.Visibility = Visibility.Visible;
+            FightB.Visibility= Visibility.Hidden;
+            Ready2.Visibility = Visibility.Hidden;
+            mAttackB.Visibility = Visibility.Visible;
+        }
+        public int StepPlayers = 1;
+        private void AttackOrDefend_Click(object sender, RoutedEventArgs e)
+        {           
+            if (StepPlayers == 1)
+            {
+                AttackOrDefend.Content = "Attack P2";
+                
+                if(TargetAttack.Text != TargetDefenceSecondPlayer.Text)
+                {
+                    if(rnd.Next(0, 101) < (Convert.ToDouble(evasionValueSecondPlayer.Text) * 100))
+                    {
+                        MessageBox.Show($"Первый игрок промахнулся");
+                    }
+                    else
+                    {
+                        if (rnd.Next(0, 101) < (Convert.ToDouble(crtValue.Text) * 100))
+                        {
+                            hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - (int.Parse(pAttackValue.Text) * 2)}";
+                            MessageBox.Show($"Второму игроку крит Нанесен урон в размере {int.Parse(pAttackValue.Text) * 2}");
+                        }
+                        else
+                        {
+                            hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(pAttackValue.Text)}";
+                            MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(pAttackValue.Text)}");
+                        }
+                    }
+                    if (int.Parse(hpValueSecondPlayer.Text) <= 0)
+                    {
+                        MessageBox.Show($"Первый игрок победил!");
+                        hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                        hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                        DexterityTB.Visibility = Visibility.Visible;
+                        LuckTB.Visibility = Visibility.Visible;
+                        ConstitutionTB.Visibility = Visibility.Visible;
+                        IntteligenceTB.Visibility = Visibility.Visible;
+                        Dexterity.Visibility = Visibility.Visible;
+                        FreePoints.Visibility = Visibility.Visible;
+                        FreePointsTB.Visibility = Visibility.Visible;
+                        Strength.Visibility = Visibility.Visible;
+                        StrengthTB.Visibility = Visibility.Visible;
+                        Luck.Visibility = Visibility.Visible;
+                        Constitution.Visibility = Visibility.Visible;
+                        Intteligence.Visibility = Visibility.Visible;
+                        StrengthMinus.Visibility = Visibility.Visible;
+                        DexterityMinus.Visibility = Visibility.Visible;
+                        LuckMinus.Visibility = Visibility.Visible;
+                        ConstitutionMinus.Visibility = Visibility.Visible;
+                        IntelligenceMinus.Visibility = Visibility.Visible;
+                        StrengthPlus.Visibility = Visibility.Visible;
+                        DexterityPlus.Visibility = Visibility.Visible;
+                        LuckPlus.Visibility = Visibility.Visible;
+                        ConstitutionPlus.Visibility = Visibility.Visible;
+                        IntelligencePlus.Visibility = Visibility.Visible;
+                        TargetAttack.Visibility = Visibility.Hidden;
+                        TargetDefence.Visibility = Visibility.Hidden;
+                        AttackOrDefend.Visibility = Visibility.Hidden;
+                        ChooseAttackTB.Visibility = Visibility.Hidden;
+                        ChooseDefenceTB.Visibility = Visibility.Hidden;
+                        mAttackB.Visibility = Visibility.Hidden;
+                        Ready1.Visibility = Visibility.Visible;
+
+                        DexterityTBSecondPlayer.Visibility = Visibility.Visible;
+                        LuckTBSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionTBSecondPlayer.Visibility = Visibility.Visible;
+                        IntteligenceTBSecondPlayer.Visibility = Visibility.Visible;
+                        DexteritySecondPlayer.Visibility = Visibility.Visible;
+                        FreePointsSecondPlayer.Visibility = Visibility.Visible;
+                        FreePointsTBSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthTBSecondPlayer.Visibility = Visibility.Visible;
+                        LuckSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionSecondPlayer.Visibility = Visibility.Visible;
+                        IntteligenceSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthMinusSecondPlayer.Visibility = Visibility.Visible;
+                        DexterityMinusSecondPlayer.Visibility = Visibility.Visible;
+                        LuckMinusSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionMinusSecondPlayer.Visibility = Visibility.Visible;
+                        IntelligenceMinusSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthPlusSecondPlayer.Visibility = Visibility.Visible;
+                        DexterityPlusSecondPlayer.Visibility = Visibility.Visible;
+                        LuckPlusSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionPlusSecondPlayer.Visibility = Visibility.Visible;
+                        IntelligencePlusSecondPlayer.Visibility = Visibility.Visible;
+                        TargetAttackSecondPlayer.Visibility = Visibility.Hidden;
+                        TargetDefenceSecondPlayer.Visibility = Visibility.Hidden;
+                        ChooseAttackTBSecondPlayer.Visibility = Visibility.Hidden;
+                        ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
+                        FightB.Visibility = Visibility.Visible;
+                        Ready2.Visibility = Visibility.Visible;
+                    }
                 }
-            }*/
+                else
+                {
+                    if(rnd.Next(0, 101) < (Convert.ToDouble(breakoutsValue.Text) * 100))
+                    {
+                        hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(pAttackValue.Text)}";
+                        MessageBox.Show($"Второму игроку Нанесен урон через блок в размере {int.Parse(pAttackValue.Text)}");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Второй игрок парировал удар!");
+                    }                  
+                }
+                StepPlayers = 2;
+            }
+            else if (StepPlayers == 2)
+            {
+                AttackOrDefend.Content = "Attack P1";
+                if(int.Parse(hpValue.Text) >= 0)
+                {
+                    if (TargetAttackSecondPlayer.Text != TargetDefence.Text)
+                    {
+                        if(rnd.Next(0, 101) < (Convert.ToDouble(evasionValue.Text) * 100))
+                        {
+                            MessageBox.Show($"Второй игрок промахнулся");
+                        }
+                        else
+                        {                           
+                            if (rnd.Next(0, 101) < (Convert.ToDouble(crtValueSecondPlayer.Text) * 100))
+                            {
+                                hpValue.Text = $"{int.Parse(hpValue.Text) - (int.Parse(pAttackValueSecondPlayer.Text) * 2)}";
+                                MessageBox.Show($"Первому игроку нанесен крит. урон в размере {int.Parse(pAttackValueSecondPlayer.Text) * 2}");
+                            }
+                            else
+                            {
+                                hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(pAttackValueSecondPlayer.Text)}";
+                                MessageBox.Show($"Первому игроку нанесен урон в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
+                            }
+                        }
+                        if(int.Parse(hpValue.Text) < 0)
+                        {
+                            MessageBox.Show($"Второй игрок победил!");
+                            hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                            hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                            DexterityTB.Visibility = Visibility.Visible;
+                            LuckTB.Visibility = Visibility.Visible;
+                            ConstitutionTB.Visibility = Visibility.Visible;
+                            IntteligenceTB.Visibility = Visibility.Visible;
+                            Dexterity.Visibility = Visibility.Visible;
+                            FreePoints.Visibility = Visibility.Visible;
+                            FreePointsTB.Visibility = Visibility.Visible;
+                            Strength.Visibility = Visibility.Visible;
+                            StrengthTB.Visibility = Visibility.Visible;
+                            Luck.Visibility = Visibility.Visible;
+                            Constitution.Visibility = Visibility.Visible;
+                            Intteligence.Visibility = Visibility.Visible;
+                            StrengthMinus.Visibility = Visibility.Visible;
+                            DexterityMinus.Visibility = Visibility.Visible;
+                            LuckMinus.Visibility = Visibility.Visible;
+                            ConstitutionMinus.Visibility = Visibility.Visible;
+                            IntelligenceMinus.Visibility = Visibility.Visible;
+                            StrengthPlus.Visibility = Visibility.Visible;
+                            DexterityPlus.Visibility = Visibility.Visible;
+                            LuckPlus.Visibility = Visibility.Visible;
+                            ConstitutionPlus.Visibility = Visibility.Visible;
+                            IntelligencePlus.Visibility = Visibility.Visible;
+                            TargetAttack.Visibility = Visibility.Hidden;
+                            TargetDefence.Visibility = Visibility.Hidden;
+                            AttackOrDefend.Visibility = Visibility.Hidden;
+                            ChooseAttackTB.Visibility = Visibility.Hidden;
+                            ChooseDefenceTB.Visibility = Visibility.Hidden;
+                            mAttackB.Visibility = Visibility.Hidden;
+                            Ready1.Visibility = Visibility.Visible;
+
+                            DexterityTBSecondPlayer.Visibility = Visibility.Visible;
+                            LuckTBSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionTBSecondPlayer.Visibility = Visibility.Visible;
+                            IntteligenceTBSecondPlayer.Visibility = Visibility.Visible;
+                            DexteritySecondPlayer.Visibility = Visibility.Visible;
+                            FreePointsSecondPlayer.Visibility = Visibility.Visible;
+                            FreePointsTBSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthTBSecondPlayer.Visibility = Visibility.Visible;
+                            LuckSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionSecondPlayer.Visibility = Visibility.Visible;
+                            IntteligenceSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthMinusSecondPlayer.Visibility = Visibility.Visible;
+                            DexterityMinusSecondPlayer.Visibility = Visibility.Visible;
+                            LuckMinusSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionMinusSecondPlayer.Visibility = Visibility.Visible;
+                            IntelligenceMinusSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthPlusSecondPlayer.Visibility = Visibility.Visible;
+                            DexterityPlusSecondPlayer.Visibility = Visibility.Visible;
+                            LuckPlusSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionPlusSecondPlayer.Visibility = Visibility.Visible;
+                            IntelligencePlusSecondPlayer.Visibility = Visibility.Visible;
+                            TargetAttackSecondPlayer.Visibility = Visibility.Hidden;
+                            TargetDefenceSecondPlayer.Visibility = Visibility.Hidden;
+                            ChooseAttackTBSecondPlayer.Visibility = Visibility.Hidden;
+                            ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
+                            FightB.Visibility = Visibility.Visible;
+                            Ready2.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else
+                    {
+                        if (rnd.Next(0, 101) < (Convert.ToDouble(breakoutsValueSecondPlayer.Text) * 100))
+                        {
+                            hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(pAttackValueSecondPlayer.Text)}";
+                            MessageBox.Show($"Первому игроку Нанесен урон через блок в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Первый игрок парировал удар!");
+                        }                       
+                    }
+                }
+                StepPlayers = 1;
+            }
+        }
+
+        private void mAttack_Click(object sender, RoutedEventArgs e)
+        {
+            if (StepPlayers == 1)
+            {
+                AttackOrDefend.Content = "Attack P2";
+
+                if (TargetAttack.Text != TargetDefenceSecondPlayer.Text)
+                {
+                    hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(mAttackValue.Text)}";
+
+                    MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}");
+                    if (int.Parse(hpValueSecondPlayer.Text) <= 0)
+                    {
+                        MessageBox.Show($"Первый игрок победил!");
+                        hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                        manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
+                        hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                        manaValueSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) * 7}";
+                        DexterityTB.Visibility = Visibility.Visible;
+                        LuckTB.Visibility = Visibility.Visible;
+                        ConstitutionTB.Visibility = Visibility.Visible;
+                        IntteligenceTB.Visibility = Visibility.Visible;
+                        Dexterity.Visibility = Visibility.Visible;
+                        FreePoints.Visibility = Visibility.Visible;
+                        FreePointsTB.Visibility = Visibility.Visible;
+                        Strength.Visibility = Visibility.Visible;
+                        StrengthTB.Visibility = Visibility.Visible;
+                        Luck.Visibility = Visibility.Visible;
+                        Constitution.Visibility = Visibility.Visible;
+                        Intteligence.Visibility = Visibility.Visible;
+                        StrengthMinus.Visibility = Visibility.Visible;
+                        DexterityMinus.Visibility = Visibility.Visible;
+                        LuckMinus.Visibility = Visibility.Visible;
+                        ConstitutionMinus.Visibility = Visibility.Visible;
+                        IntelligenceMinus.Visibility = Visibility.Visible;
+                        StrengthPlus.Visibility = Visibility.Visible;
+                        DexterityPlus.Visibility = Visibility.Visible;
+                        LuckPlus.Visibility = Visibility.Visible;
+                        ConstitutionPlus.Visibility = Visibility.Visible;
+                        IntelligencePlus.Visibility = Visibility.Visible;
+                        TargetAttack.Visibility = Visibility.Hidden;
+                        TargetDefence.Visibility = Visibility.Hidden;
+                        AttackOrDefend.Visibility = Visibility.Hidden;
+                        ChooseAttackTB.Visibility = Visibility.Hidden;
+                        ChooseDefenceTB.Visibility = Visibility.Hidden;
+                        Ready1.Visibility = Visibility.Visible;
+                        mAttackB.Visibility = Visibility.Hidden;
+
+                        DexterityTBSecondPlayer.Visibility = Visibility.Visible;
+                        LuckTBSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionTBSecondPlayer.Visibility = Visibility.Visible;
+                        IntteligenceTBSecondPlayer.Visibility = Visibility.Visible;
+                        DexteritySecondPlayer.Visibility = Visibility.Visible;
+                        FreePointsSecondPlayer.Visibility = Visibility.Visible;
+                        FreePointsTBSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthTBSecondPlayer.Visibility = Visibility.Visible;
+                        LuckSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionSecondPlayer.Visibility = Visibility.Visible;
+                        IntteligenceSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthMinusSecondPlayer.Visibility = Visibility.Visible;
+                        DexterityMinusSecondPlayer.Visibility = Visibility.Visible;
+                        LuckMinusSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionMinusSecondPlayer.Visibility = Visibility.Visible;
+                        IntelligenceMinusSecondPlayer.Visibility = Visibility.Visible;
+                        StrengthPlusSecondPlayer.Visibility = Visibility.Visible;
+                        DexterityPlusSecondPlayer.Visibility = Visibility.Visible;
+                        LuckPlusSecondPlayer.Visibility = Visibility.Visible;
+                        ConstitutionPlusSecondPlayer.Visibility = Visibility.Visible;
+                        IntelligencePlusSecondPlayer.Visibility = Visibility.Visible;
+                        TargetAttackSecondPlayer.Visibility = Visibility.Hidden;
+                        TargetDefenceSecondPlayer.Visibility = Visibility.Hidden;
+                        ChooseAttackTBSecondPlayer.Visibility = Visibility.Hidden;
+                        ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
+                        FightB.Visibility = Visibility.Visible;
+                        Ready2.Visibility = Visibility.Visible;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Второй игрок парировал удар!");
+                }
+                StepPlayers = 2;
+            }
+            else if (StepPlayers == 2)
+            {
+                AttackOrDefend.Content = "Attack P1";
+                if (int.Parse(hpValue.Text) >= 0)
+                {
+                    if (TargetAttackSecondPlayer.Text != TargetDefence.Text)
+                    {
+                        hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(mAttackValueSecondPlayer.Text)}";
+                        MessageBox.Show($"Первому игроку нанесен урон в размере {int.Parse(mAttackValueSecondPlayer.Text)}");
+                        if (int.Parse(hpValue.Text) < 0)
+                        {
+                            MessageBox.Show($"Второй игрок победил!");
+                            hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                            manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
+                            hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                            manaValueSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) * 7}";
+                            DexterityTB.Visibility = Visibility.Visible;
+                            LuckTB.Visibility = Visibility.Visible;
+                            ConstitutionTB.Visibility = Visibility.Visible;
+                            IntteligenceTB.Visibility = Visibility.Visible;
+                            Dexterity.Visibility = Visibility.Visible;
+                            FreePoints.Visibility = Visibility.Visible;
+                            FreePointsTB.Visibility = Visibility.Visible;
+                            Strength.Visibility = Visibility.Visible;
+                            StrengthTB.Visibility = Visibility.Visible;
+                            Luck.Visibility = Visibility.Visible;
+                            Constitution.Visibility = Visibility.Visible;
+                            Intteligence.Visibility = Visibility.Visible;
+                            StrengthMinus.Visibility = Visibility.Visible;
+                            DexterityMinus.Visibility = Visibility.Visible;
+                            LuckMinus.Visibility = Visibility.Visible;
+                            ConstitutionMinus.Visibility = Visibility.Visible;
+                            IntelligenceMinus.Visibility = Visibility.Visible;
+                            StrengthPlus.Visibility = Visibility.Visible;
+                            DexterityPlus.Visibility = Visibility.Visible;
+                            LuckPlus.Visibility = Visibility.Visible;
+                            ConstitutionPlus.Visibility = Visibility.Visible;
+                            IntelligencePlus.Visibility = Visibility.Visible;
+                            TargetAttack.Visibility = Visibility.Hidden;
+                            TargetDefence.Visibility = Visibility.Hidden;
+                            AttackOrDefend.Visibility = Visibility.Hidden;
+                            ChooseAttackTB.Visibility = Visibility.Hidden;
+                            ChooseDefenceTB.Visibility = Visibility.Hidden;
+                            Ready1.Visibility = Visibility.Visible;
+
+                            DexterityTBSecondPlayer.Visibility = Visibility.Visible;
+                            LuckTBSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionTBSecondPlayer.Visibility = Visibility.Visible;
+                            IntteligenceTBSecondPlayer.Visibility = Visibility.Visible;
+                            DexteritySecondPlayer.Visibility = Visibility.Visible;
+                            FreePointsSecondPlayer.Visibility = Visibility.Visible;
+                            FreePointsTBSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthTBSecondPlayer.Visibility = Visibility.Visible;
+                            LuckSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionSecondPlayer.Visibility = Visibility.Visible;
+                            IntteligenceSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthMinusSecondPlayer.Visibility = Visibility.Visible;
+                            DexterityMinusSecondPlayer.Visibility = Visibility.Visible;
+                            LuckMinusSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionMinusSecondPlayer.Visibility = Visibility.Visible;
+                            IntelligenceMinusSecondPlayer.Visibility = Visibility.Visible;
+                            StrengthPlusSecondPlayer.Visibility = Visibility.Visible;
+                            DexterityPlusSecondPlayer.Visibility = Visibility.Visible;
+                            LuckPlusSecondPlayer.Visibility = Visibility.Visible;
+                            ConstitutionPlusSecondPlayer.Visibility = Visibility.Visible;
+                            IntelligencePlusSecondPlayer.Visibility = Visibility.Visible;
+                            TargetAttackSecondPlayer.Visibility = Visibility.Hidden;
+                            TargetDefenceSecondPlayer.Visibility = Visibility.Hidden;
+                            ChooseAttackTBSecondPlayer.Visibility = Visibility.Hidden;
+                            ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
+                            FightB.Visibility = Visibility.Visible;
+                            Ready2.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Первый игрок парировал удар!");
+                    }
+                }
+                StepPlayers = 1;
+            }
         }
     }
 }
