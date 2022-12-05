@@ -629,6 +629,8 @@ namespace BattleForTwoPlayer
                         Ready1.Visibility = Visibility.Visible;
                         Heal.Visibility= Visibility.Hidden;
                         HealSecondPlayer.Visibility = Visibility.Hidden;
+                        Logs.Items.Clear();
+                        Logs.Visibility = Visibility.Hidden;
                         StrengthPlus.IsEnabled = true;
                         DexterityPlus.IsEnabled = true;
                         LuckPlus.IsEnabled = true;
@@ -768,6 +770,8 @@ namespace BattleForTwoPlayer
                             Ready1.Visibility = Visibility.Visible;
                             Heal.Visibility = Visibility.Hidden;
                             HealSecondPlayer.Visibility = Visibility.Hidden;
+                            Logs.Items.Clear();
+                            Logs.Visibility = Visibility.Hidden;
 
                             DexterityTBSecondPlayer.Visibility = Visibility.Visible;
                             LuckTBSecondPlayer.Visibility = Visibility.Visible;
@@ -894,6 +898,8 @@ namespace BattleForTwoPlayer
                         mAttackB.Visibility = Visibility.Hidden;
                         Heal.Visibility = Visibility.Hidden;
                         HealSecondPlayer.Visibility = Visibility.Hidden;
+                        Logs.Items.Clear();
+                        Logs.Visibility = Visibility.Hidden;
 
                         DexterityTBSecondPlayer.Visibility = Visibility.Visible;
                         LuckTBSecondPlayer.Visibility = Visibility.Visible;
@@ -1006,6 +1012,8 @@ namespace BattleForTwoPlayer
                             Ready1.Visibility = Visibility.Visible;
                             Heal.Visibility = Visibility.Hidden;
                             HealSecondPlayer.Visibility = Visibility.Hidden;
+                            Logs.Items.Clear();
+                            Logs.Visibility = Visibility.Hidden;
 
                             DexterityTBSecondPlayer.Visibility = Visibility.Visible;
                             LuckTBSecondPlayer.Visibility = Visibility.Visible;
