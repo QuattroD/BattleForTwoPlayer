@@ -499,6 +499,7 @@ namespace BattleForTwoPlayer
             ChooseAttackTB.Visibility = Visibility.Visible;
             ChooseDefenceTB.Visibility = Visibility.Visible;
             Ready1.Visibility = Visibility.Hidden;
+            Logs.Visibility = Visibility.Visible;
 
             DexterityTBSecondPlayer.Visibility = Visibility.Hidden;
             LuckTBSecondPlayer.Visibility = Visibility.Hidden;
@@ -563,6 +564,7 @@ namespace BattleForTwoPlayer
                     if(rnd.Next(0, 101) < (Convert.ToDouble(evasionValueSecondPlayer.Text) * 100))
                     {
                         MessageBox.Show($"Первый игрок промахнулся");
+                        Logs.Items.Add($"Первый игрок промахнулся");
                     }
                     else
                     {
@@ -570,11 +572,13 @@ namespace BattleForTwoPlayer
                         {
                             hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - (int.Parse(pAttackValue.Text) * 2)}";
                             MessageBox.Show($"Второму игроку нанесен крит. урон в размере {int.Parse(pAttackValue.Text) * 2}");
+                            Logs.Items.Add($"Второму игроку нанесен крит. урон в размере {int.Parse(pAttackValue.Text) * 2}");
                         }
                         else
                         {
                             hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(pAttackValue.Text)}";
                             MessageBox.Show($"Второму игроку нанесен урон в размере {int.Parse(pAttackValue.Text)}");
+                            Logs.Items.Add($"Второму игроку нанесен урон в размере {int.Parse(pAttackValue.Text)}");
                         }
                     }
                     if (int.Parse(hpValueSecondPlayer.Text) <= 0)
@@ -597,6 +601,7 @@ namespace BattleForTwoPlayer
                             FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) + Pointlist[int.Parse(lvlValueSecondPlayer.Text)]}";
                         }
                         MessageBox.Show($"Первый игрок победил!");
+                        Logs.Items.Add($"Первый игрок победил!");
                         manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
                         DexterityTB.Visibility = Visibility.Visible;
                         LuckTB.Visibility = Visibility.Visible;
@@ -672,10 +677,12 @@ namespace BattleForTwoPlayer
                     {
                         hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(pAttackValue.Text)}";
                         MessageBox.Show($"Второму игроку нанесен урон через блок в размере {int.Parse(pAttackValue.Text)}");
+                        Logs.Items.Add($"Второму игроку нанесен урон через блок в размере {int.Parse(pAttackValue.Text)}");
                     }
                     else
                     {
                         MessageBox.Show($"Второй игрок парировал удар!");
+                        Logs.Items.Add($"Второй игрок парировал удар!");
                     }                  
                 }
                 StepPlayers = 2;
@@ -690,6 +697,7 @@ namespace BattleForTwoPlayer
                         if(rnd.Next(0, 101) < (Convert.ToDouble(evasionValue.Text) * 100))
                         {
                             MessageBox.Show($"Второй игрок промахнулся");
+                            Logs.Items.Add($"Второй игрок промахнулся");
                         }
                         else
                         {                           
@@ -697,11 +705,13 @@ namespace BattleForTwoPlayer
                             {
                                 hpValue.Text = $"{int.Parse(hpValue.Text) - (int.Parse(pAttackValueSecondPlayer.Text) * 2)}";
                                 MessageBox.Show($"Первому игроку нанесен крит. урон в размере {int.Parse(pAttackValueSecondPlayer.Text) * 2}");
+                                Logs.Items.Add($"Первому игроку нанесен крит. урон в размере {int.Parse(pAttackValueSecondPlayer.Text) * 2}");
                             }
                             else
                             {
                                 hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(pAttackValueSecondPlayer.Text)}";
                                 MessageBox.Show($"Первому игроку нанесен урон в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
+                                Logs.Items.Add($"Первому игроку нанесен урон в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
                             }
                         }
                         if(int.Parse(hpValue.Text) <= 0)
@@ -724,6 +734,7 @@ namespace BattleForTwoPlayer
                                 FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) + Pointlist[int.Parse(lvlValueSecondPlayer.Text)]}";
                             }
                             MessageBox.Show($"Второй игрок победил!");
+                            Logs.Items.Add($"Второй игрок победил!");
                             hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
                             hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
                             DexterityTB.Visibility = Visibility.Visible;
@@ -799,10 +810,12 @@ namespace BattleForTwoPlayer
                         {
                             hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(pAttackValueSecondPlayer.Text)}";
                             MessageBox.Show($"Первому игроку нанесен урон через блок в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
+                            Logs.Items.Add($"Первому игроку нанесен урон через блок в размере {int.Parse(pAttackValueSecondPlayer.Text)}");
                         }
                         else
                         {
                             MessageBox.Show($"Первый игрок парировал удар!");
+                            Logs.Items.Add($"Первый игрок парировал удар!");
                         }                       
                     }
                 }
@@ -826,7 +839,8 @@ namespace BattleForTwoPlayer
                     {
                         hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(mAttackValue.Text)}";
                         manaValue.Text = $"{int.Parse(manaValue.Text) - 5}";
-                        MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}", "Player1");
+                        MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}");
+                        Logs.Items.Add($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}");
                     }
                    
                     if (int.Parse(hpValueSecondPlayer.Text) <= 0)
@@ -844,6 +858,7 @@ namespace BattleForTwoPlayer
                             FreePoints.Text = $"{int.Parse(FreePoints.Text) + Pointlist[int.Parse(lvlValue.Text)]}";
                         }
                         MessageBox.Show($"Первый игрок победил!");
+                        Logs.Items.Add("Первый игрок победил!");
                         hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
                         manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
                         hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
@@ -919,6 +934,7 @@ namespace BattleForTwoPlayer
                 else
                 {
                     MessageBox.Show($"Второй игрок парировал удар!");
+                    Logs.Items.Add("Второй игрок парировал удар!");
                 }
                 StepPlayers = 2;
             }
@@ -938,6 +954,7 @@ namespace BattleForTwoPlayer
                             hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(mAttackValueSecondPlayer.Text)}";
                             manaValueSecondPlayer.Text = $"{int.Parse(manaValueSecondPlayer.Text) - 5}";
                             MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValueSecondPlayer.Text)}");
+                            Logs.Items.Add($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValueSecondPlayer.Text)}");
                         }
                         if (int.Parse(hpValue.Text) < 0)
                         {
@@ -954,6 +971,7 @@ namespace BattleForTwoPlayer
                                 FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) + Pointlist[int.Parse(lvlValueSecondPlayer.Text)]}";
                             }
                             MessageBox.Show($"Второй игрок победил!");
+                            Logs.Items.Add($"Второй игрок победил!");
                             hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
                             manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
                             hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
@@ -1028,6 +1046,7 @@ namespace BattleForTwoPlayer
                     else
                     {
                         MessageBox.Show($"Первый игрок парировал удар!");
+                        Logs.Items.Add("Первый игрок парировал удар!");
                     }
                 }
                 StepPlayers = 1;

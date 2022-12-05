@@ -126,5 +126,6 @@
         <TextBlock x:Name="ChooseAttackTBSecondPlayer" HorizontalAlignment="Left" Margin="629,354,0,0" TextWrapping="Wrap" Text="Choose attack" VerticalAlignment="Top" Height="20" Width="120" FontSize="14" Visibility="Hidden"/>
         <Button x:Name="Heal" Click="Heal_Click" Content="Heal" HorizontalAlignment="Left" Margin="235,426,0,0" VerticalAlignment="Top" Height="25" Width="60" Visibility="Hidden"/>
         <Button x:Name="HealSecondPlayer" Click="HealSecondPlayer_Click" Content="Heal" HorizontalAlignment="Left" Margin="564,426,0,0" VerticalAlignment="Top" Height="25" Width="60" Visibility="Hidden"/>
+        <ListBox x:Name="Logs" Margin="294,18,282,188" Visibility="Hidden"/>
     </Grid>
 </Window>
