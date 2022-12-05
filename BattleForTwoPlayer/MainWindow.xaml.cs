@@ -802,7 +802,7 @@ namespace BattleForTwoPlayer
 
                 if (TargetAttack.Text != TargetDefenceSecondPlayer.Text)
                 {
-                    if(Convert.ToDouble(manaValue.Text) <= 0)
+                    if(Convert.ToDouble(manaValue.Text) < 5)
                     {
                         MessageBox.Show($"Не хватает маны!");
                     }
@@ -810,7 +810,7 @@ namespace BattleForTwoPlayer
                     {
                         hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(mAttackValue.Text)}";
                         manaValue.Text = $"{int.Parse(manaValue.Text) - 5}";
-                        MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}");
+                        MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}", "Player1");
                     }
                    
                     if (int.Parse(hpValueSecondPlayer.Text) <= 0)
@@ -909,7 +909,7 @@ namespace BattleForTwoPlayer
                 {
                     if (TargetAttackSecondPlayer.Text != TargetDefence.Text)
                     {
-                        if (Convert.ToDouble(manaValueSecondPlayer.Text) <= 0)
+                        if (Convert.ToDouble(manaValueSecondPlayer.Text) < 5)
                         {
                             MessageBox.Show($"Не хватает маны!");
                         }
@@ -1018,7 +1018,7 @@ namespace BattleForTwoPlayer
             }
             else if (int.Parse(manaValue.Text) - 2 >= 0)
             {
-                while (int.Parse(manaValue.Text) != MaxHP && int.Parse(manaValue.Text) - 2 >= 0)
+                while (int.Parse(hpValue.Text) != MaxHP && int.Parse(manaValue.Text) - 2 >= 0)
                 {
                     manaValue.Text = $"{int.Parse(manaValue.Text) - 2}";
                     hpValue.Text = $"{int.Parse(hpValue.Text) + 1}";
@@ -1038,7 +1038,7 @@ namespace BattleForTwoPlayer
             }
             else if (int.Parse(manaValueSecondPlayer.Text) - 2 >= 0)
             {
-                while(int.Parse(manaValueSecondPlayer.Text) != MaxHPSecondPlayer && int.Parse(manaValueSecondPlayer.Text) - 2 >= 0)
+                while(int.Parse(hpValueSecondPlayer.Text) != MaxHPSecondPlayer && int.Parse(manaValueSecondPlayer.Text) - 2 >= 0)
                 {
                     manaValueSecondPlayer.Text = $"{int.Parse(manaValueSecondPlayer.Text) - 2}";
                     hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) + 1}";
