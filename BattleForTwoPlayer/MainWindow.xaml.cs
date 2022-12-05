@@ -22,17 +22,29 @@ namespace BattleForTwoPlayer
     public partial class MainWindow : Window
     {
         public Random rnd = new Random();
+        public Dictionary<int, int> explist = new Dictionary<int, int>()
+        {
+            {1, 100},
+            {2, 300},
+            {3, 800},
+            {4, 1800},
+            {5, 3000}
+        };
+        public Dictionary<int, int> Pointlist = new Dictionary<int, int>()
+        {
+            {2, 2},
+            {3, 3},
+            {4, 2},
+            {5, 5}
+        };
+        public int MaxHP;
+        public int MaxHPSecondPlayer;
+        public int CurrentExp;
+        public int CurrentExpSecondPlayer;
         public MainWindow()
         {
             InitializeComponent();
-            Dictionary<int, int> explist = new Dictionary<int, int>()
-            {
-                {1, 100},
-                {2, 300},
-                {3, 800},
-                {4, 1800},
-                {5, 3000}
-            };
+            
         }
 
         private void StrengthMinus_Click(object sender, RoutedEventArgs e)
@@ -335,9 +347,20 @@ namespace BattleForTwoPlayer
                 ConstitutionPlusSecondPlayer.IsEnabled = false;
                 IntelligencePlusSecondPlayer.IsEnabled = false;
                 crtValueSecondPlayer.Text = $"{(int.Parse(LuckSecondPlayer.Text) - (int.Parse(Luck.Text) * 0.5)) * 0.1}";
+                if (Convert.ToDouble(crtValueSecondPlayer.Text) < 0)
+                {
+                    crtValueSecondPlayer.Text = "0";
+                }
                 evasionValueSecondPlayer.Text = $"{(int.Parse(DexteritySecondPlayer.Text) - int.Parse(Dexterity.Text)) * 0.1}";
+                if (Convert.ToDouble(evasionValueSecondPlayer.Text) < 0)
+                {
+                    evasionValueSecondPlayer.Text = "0";
+                }
                 breakoutsValueSecondPlayer.Text = $"{(int.Parse(StrengthSecondPlayer.Text) - int.Parse(Strength.Text)) * 0.05}";
-                /*Exp.Text = $"EXP: {}/{}";*/
+                if (Convert.ToDouble(breakoutsValueSecondPlayer.Text) < 0)
+                {
+                    breakoutsValueSecondPlayer.Text = "0";
+                }               
                 Ready2.Content = "Unready";
                 ReadySecond = true;
                 FighterModel Player2 = new FighterModel(Name.Text, int.Parse(lvlValue.Text), int.Parse(Strength.Text), int.Parse(Dexterity.Text), int.Parse(Luck.Text), int.Parse(Constitution.Text), int.Parse(Intteligence.Text));
@@ -395,8 +418,21 @@ namespace BattleForTwoPlayer
                 ConstitutionPlus.IsEnabled = false;
                 IntelligencePlus.IsEnabled = false;
                 crtValue.Text = $"{(int.Parse(Luck.Text) - (int.Parse(LuckSecondPlayer.Text) * 0.5)) * 0.1}";
+                if(Convert.ToDouble(crtValue.Text) < 0)
+                {
+                    crtValue.Text = "0";
+                }
                 evasionValue.Text = $"{(int.Parse(Dexterity.Text) - int.Parse(DexteritySecondPlayer.Text)) * 0.1}";
+                if(Convert.ToDouble(evasionValue.Text) < 0)
+                {
+                    evasionValue.Text = "0";
+                }
                 breakoutsValue.Text = $"{(int.Parse(Strength.Text) - int.Parse(StrengthSecondPlayer.Text)) * 0.05}";
+                if(Convert.ToDouble(breakoutsValue.Text) < 0)
+                {
+                    breakoutsValue.Text = "0";
+                }
+                Exp.Text = $"EXP: 0/{explist[int.Parse(lvlValue.Text)]}";
                 Ready1.Content = "Unready";
                 ReadyFirst = true;
                 FighterModel Player1 = new FighterModel(Name.Text, int.Parse(lvlValue.Text), int.Parse(Strength.Text), int.Parse(Dexterity.Text), int.Parse(Luck.Text), int.Parse(Constitution.Text), int.Parse(Intteligence.Text));
@@ -494,6 +530,27 @@ namespace BattleForTwoPlayer
             FightB.Visibility= Visibility.Hidden;
             Ready2.Visibility = Visibility.Hidden;
             mAttackB.Visibility = Visibility.Visible;
+            MaxHP = int.Parse(hpValue.Text);
+            MaxHPSecondPlayer = int.Parse(hpValueSecondPlayer.Text);
+            Heal.Visibility= Visibility.Visible;
+            HealSecondPlayer.Visibility= Visibility.Visible;
+            if(int.Parse(Intteligence.Text) > 5)
+            {
+                Heal.IsEnabled= true;
+            }
+            else
+            {
+                Heal.IsEnabled = false;
+            }
+
+            if (int.Parse(IntteligenceSecondPlayer.Text) > 5)
+            {
+                HealSecondPlayer.IsEnabled = true;
+            }
+            else
+            {
+                HealSecondPlayer.IsEnabled = false;
+            }
         }
         public int StepPlayers = 1;
         private void AttackOrDefend_Click(object sender, RoutedEventArgs e)
@@ -522,10 +579,21 @@ namespace BattleForTwoPlayer
                         }
                     }
                     if (int.Parse(hpValueSecondPlayer.Text) <= 0)
-                    {
-                        MessageBox.Show($"Первый игрок победил!");
-                        hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
-                        hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                    {                       
+                        hpValueSecondPlayer.Text = "0";
+                        CurrentExp += (MaxHPSecondPlayer * 3) * int.Parse(lvlValueSecondPlayer.Text);
+                        CurrentExpSecondPlayer += (MaxHP - int.Parse(hpValue.Text)) * 3 * int.Parse(lvlValue.Text);
+                        Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                        ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                        if (CurrentExp >= explist[int.Parse(lvlValue.Text)])
+                        {
+                            lvlValue.Text = $"{int.Parse(lvlValue.Text) + 1}";
+                            Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                            ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                            FreePoints.Text = $"{int.Parse(FreePoints.Text) + Pointlist[int.Parse(lvlValue.Text)]}";
+                        }
+                        MessageBox.Show($"Первый игрок победил! {(MaxHP - int.Parse(hpValue.Text)) * 3 * int.Parse(lvlValue.Text)} {(MaxHPSecondPlayer * 3) * int.Parse(lvlValueSecondPlayer.Text)}");
+                        manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
                         DexterityTB.Visibility = Visibility.Visible;
                         LuckTB.Visibility = Visibility.Visible;
                         ConstitutionTB.Visibility = Visibility.Visible;
@@ -537,17 +605,12 @@ namespace BattleForTwoPlayer
                         StrengthTB.Visibility = Visibility.Visible;
                         Luck.Visibility = Visibility.Visible;
                         Constitution.Visibility = Visibility.Visible;
-                        Intteligence.Visibility = Visibility.Visible;
-                        StrengthMinus.Visibility = Visibility.Visible;
-                        DexterityMinus.Visibility = Visibility.Visible;
-                        LuckMinus.Visibility = Visibility.Visible;
-                        ConstitutionMinus.Visibility = Visibility.Visible;
-                        IntelligenceMinus.Visibility = Visibility.Visible;
+                        Intteligence.Visibility = Visibility.Visible;                       
                         StrengthPlus.Visibility = Visibility.Visible;
-                        DexterityPlus.Visibility = Visibility.Visible;
-                        LuckPlus.Visibility = Visibility.Visible;
                         ConstitutionPlus.Visibility = Visibility.Visible;
                         IntelligencePlus.Visibility = Visibility.Visible;
+                        DexterityPlus.Visibility = Visibility.Visible;
+                        LuckPlus.Visibility = Visibility.Visible;                        
                         TargetAttack.Visibility = Visibility.Hidden;
                         TargetDefence.Visibility = Visibility.Hidden;
                         AttackOrDefend.Visibility = Visibility.Hidden;
@@ -555,6 +618,11 @@ namespace BattleForTwoPlayer
                         ChooseDefenceTB.Visibility = Visibility.Hidden;
                         mAttackB.Visibility = Visibility.Hidden;
                         Ready1.Visibility = Visibility.Visible;
+                        StrengthPlus.IsEnabled = true;
+                        DexterityPlus.IsEnabled = true;
+                        LuckPlus.IsEnabled = true;
+                        ConstitutionPlus.IsEnabled = true;
+                        IntelligencePlus.IsEnabled = true;
 
                         DexterityTBSecondPlayer.Visibility = Visibility.Visible;
                         LuckTBSecondPlayer.Visibility = Visibility.Visible;
@@ -568,11 +636,6 @@ namespace BattleForTwoPlayer
                         LuckSecondPlayer.Visibility = Visibility.Visible;
                         ConstitutionSecondPlayer.Visibility = Visibility.Visible;
                         IntteligenceSecondPlayer.Visibility = Visibility.Visible;
-                        StrengthMinusSecondPlayer.Visibility = Visibility.Visible;
-                        DexterityMinusSecondPlayer.Visibility = Visibility.Visible;
-                        LuckMinusSecondPlayer.Visibility = Visibility.Visible;
-                        ConstitutionMinusSecondPlayer.Visibility = Visibility.Visible;
-                        IntelligenceMinusSecondPlayer.Visibility = Visibility.Visible;
                         StrengthPlusSecondPlayer.Visibility = Visibility.Visible;
                         DexterityPlusSecondPlayer.Visibility = Visibility.Visible;
                         LuckPlusSecondPlayer.Visibility = Visibility.Visible;
@@ -584,6 +647,15 @@ namespace BattleForTwoPlayer
                         ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
                         FightB.Visibility = Visibility.Visible;
                         Ready2.Visibility = Visibility.Visible;
+                        StrengthPlusSecondPlayer.IsEnabled = true;
+                        DexterityPlusSecondPlayer.IsEnabled = true;
+                        LuckPlusSecondPlayer.IsEnabled = true;
+                        ConstitutionPlusSecondPlayer.IsEnabled = true;
+                        IntelligencePlusSecondPlayer.IsEnabled = true;
+                        manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
+                        manaValueSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) * 7}";
+                        hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                        hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
                     }
                 }
                 else
@@ -626,6 +698,18 @@ namespace BattleForTwoPlayer
                         }
                         if(int.Parse(hpValue.Text) < 0)
                         {
+                            hpValue.Text = "0";
+                            CurrentExpSecondPlayer += (MaxHP * 3) * int.Parse(lvlValue.Text);
+                            CurrentExp += (MaxHPSecondPlayer - int.Parse(hpValueSecondPlayer.Text)) * 3 * int.Parse(lvlValueSecondPlayer.Text);
+                            ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                            Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                            if (CurrentExpSecondPlayer >= explist[int.Parse(lvlValueSecondPlayer.Text)])
+                            {
+                                lvlValueSecondPlayer.Text = $"{int.Parse(lvlValueSecondPlayer.Text) + 1}";
+                                ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                                Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                                FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) + Pointlist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                            }
                             MessageBox.Show($"Второй игрок победил!");
                             hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
                             hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
@@ -687,6 +771,10 @@ namespace BattleForTwoPlayer
                             ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
                             FightB.Visibility = Visibility.Visible;
                             Ready2.Visibility = Visibility.Visible;
+                            hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                            hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                            manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
+                            manaValueSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) * 7}";
                         }
                     }
                     else
@@ -710,15 +798,35 @@ namespace BattleForTwoPlayer
         {
             if (StepPlayers == 1)
             {
-                AttackOrDefend.Content = "Attack P2";
+                mAttackB.Content = "mAttack P2";
 
                 if (TargetAttack.Text != TargetDefenceSecondPlayer.Text)
                 {
-                    hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(mAttackValue.Text)}";
-
-                    MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}");
+                    if(Convert.ToDouble(manaValue.Text) <= 0)
+                    {
+                        MessageBox.Show($"Не хватает маны!");
+                    }
+                    else
+                    {
+                        hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) - int.Parse(mAttackValue.Text)}";
+                        manaValue.Text = $"{int.Parse(manaValue.Text) - 5}";
+                        MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValue.Text)}");
+                    }
+                   
                     if (int.Parse(hpValueSecondPlayer.Text) <= 0)
                     {
+                        hpValueSecondPlayer.Text = "0";
+                        CurrentExp += (MaxHPSecondPlayer * 3) * int.Parse(lvlValueSecondPlayer.Text);
+                        CurrentExpSecondPlayer += (MaxHP - int.Parse(hpValue.Text)) * 3 * int.Parse(lvlValue.Text);
+                        Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                        ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                        if (CurrentExp >= explist[int.Parse(lvlValue.Text)])
+                        {
+                            lvlValue.Text = $"{int.Parse(lvlValue.Text) + 1}";
+                            Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                            ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                            FreePoints.Text = $"{int.Parse(FreePoints.Text) + Pointlist[int.Parse(lvlValue.Text)]}";
+                        }
                         MessageBox.Show($"Первый игрок победил!");
                         hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
                         manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
@@ -782,6 +890,10 @@ namespace BattleForTwoPlayer
                         ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
                         FightB.Visibility = Visibility.Visible;
                         Ready2.Visibility = Visibility.Visible;
+                        hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                        hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                        manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
+                        manaValueSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) * 7}";
                     }
                 }
                 else
@@ -792,15 +904,35 @@ namespace BattleForTwoPlayer
             }
             else if (StepPlayers == 2)
             {
-                AttackOrDefend.Content = "Attack P1";
+                mAttackB.Content = "mAttack P1";
                 if (int.Parse(hpValue.Text) >= 0)
                 {
                     if (TargetAttackSecondPlayer.Text != TargetDefence.Text)
                     {
-                        hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(mAttackValueSecondPlayer.Text)}";
-                        MessageBox.Show($"Первому игроку нанесен урон в размере {int.Parse(mAttackValueSecondPlayer.Text)}");
+                        if (Convert.ToDouble(manaValueSecondPlayer.Text) <= 0)
+                        {
+                            MessageBox.Show($"Не хватает маны!");
+                        }
+                        else
+                        {
+                            hpValue.Text = $"{int.Parse(hpValue.Text) - int.Parse(mAttackValueSecondPlayer.Text)}";
+                            manaValueSecondPlayer.Text = $"{int.Parse(manaValueSecondPlayer.Text) - 5}";
+                            MessageBox.Show($"Второму игроку Нанесен урон в размере {int.Parse(mAttackValueSecondPlayer.Text)}");
+                        }
                         if (int.Parse(hpValue.Text) < 0)
                         {
+                            hpValue.Text = "0";
+                            CurrentExpSecondPlayer += (MaxHP * 3) * int.Parse(lvlValue.Text);
+                            CurrentExp += (MaxHPSecondPlayer - int.Parse(hpValueSecondPlayer.Text)) * 3 * int.Parse(lvlValueSecondPlayer.Text);
+                            ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                            Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                            if (CurrentExpSecondPlayer >= explist[int.Parse(lvlValueSecondPlayer.Text)])
+                            {
+                                lvlValueSecondPlayer.Text = $"{int.Parse(lvlValueSecondPlayer.Text) + 1}";
+                                ExpSecondPlayer.Text = $"{CurrentExpSecondPlayer}/{explist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                                Exp.Text = $"{CurrentExp}/{explist[int.Parse(lvlValue.Text)]}";
+                                FreePointsSecondPlayer.Text = $"{int.Parse(FreePointsSecondPlayer.Text) + Pointlist[int.Parse(lvlValueSecondPlayer.Text)]}";
+                            }
                             MessageBox.Show($"Второй игрок победил!");
                             hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
                             manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
@@ -863,6 +995,10 @@ namespace BattleForTwoPlayer
                             ChooseDefenceTBSecondPlayer.Visibility = Visibility.Hidden;
                             FightB.Visibility = Visibility.Visible;
                             Ready2.Visibility = Visibility.Visible;
+                            hpValue.Text = $"{int.Parse(Constitution.Text) * 5}";
+                            hpValueSecondPlayer.Text = $"{int.Parse(ConstitutionSecondPlayer.Text) * 5}";
+                            manaValue.Text = $"{int.Parse(Intteligence.Text) * 7}";
+                            manaValueSecondPlayer.Text = $"{int.Parse(IntteligenceSecondPlayer.Text) * 7}";
                         }
                     }
                     else
@@ -871,6 +1007,46 @@ namespace BattleForTwoPlayer
                     }
                 }
                 StepPlayers = 1;
+            }
+        }
+
+        private void Heal_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.Parse(hpValue.Text) == MaxHP)
+            {
+                MessageBox.Show($"Лечение не требуется");
+            }
+            else if (int.Parse(manaValue.Text) - 2 >= 0)
+            {
+                while (int.Parse(manaValue.Text) != MaxHP && int.Parse(manaValue.Text) - 2 >= 0)
+                {
+                    manaValue.Text = $"{int.Parse(manaValue.Text) - 2}";
+                    hpValue.Text = $"{int.Parse(hpValue.Text) + 1}";
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Не хватает маны");
+            }
+        }
+
+        private void HealSecondPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.Parse(hpValueSecondPlayer.Text) == MaxHPSecondPlayer)
+            {
+                MessageBox.Show($"Лечение не требуется");
+            }
+            else if (int.Parse(manaValueSecondPlayer.Text) - 2 >= 0)
+            {
+                while(int.Parse(manaValueSecondPlayer.Text) != MaxHPSecondPlayer && int.Parse(manaValueSecondPlayer.Text) - 2 >= 0)
+                {
+                    manaValueSecondPlayer.Text = $"{int.Parse(manaValueSecondPlayer.Text) - 2}";
+                    hpValueSecondPlayer.Text = $"{int.Parse(hpValueSecondPlayer.Text) + 1}";
+                }
+            }            
+            else
+            {
+                MessageBox.Show($"Не хватает маны");
             }
         }
     }
